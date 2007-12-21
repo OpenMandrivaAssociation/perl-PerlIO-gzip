@@ -13,6 +13,7 @@ Source:		http://www.cpan.org/authors/id/N/NW/NWCLARK/%{real_name}-%{version}.tar
 Patch:		%{real_name}-0.14-no_strict_warnings.patch
 URL:		http://search.cpan.org/dist/%{real_name}/
 BuildRequires:	perl-devel zlib-devel
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 PerlIO::gzip provides a PerlIO layer that manipulates files in the format used
