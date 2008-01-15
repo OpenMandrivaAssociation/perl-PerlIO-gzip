@@ -1,7 +1,7 @@
 %define real_name PerlIO-gzip
 %define name perl-%real_name
 %define version 0.18
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary:	Perl extension to provide a PerlIO layer to gzip/gunzip
 Name:		%{name}
