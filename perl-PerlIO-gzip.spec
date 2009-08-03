@@ -1,19 +1,20 @@
-%define real_name PerlIO-gzip
-%define name perl-%real_name
-%define version 0.18
-%define release %mkrel 3
+%define upstream_name    PerlIO-gzip
+%define upstream_version 0.18
+
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
 Summary:	Perl extension to provide a PerlIO layer to gzip/gunzip
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-Source:		http://www.cpan.org/authors/id/N/NW/NWCLARK/%{real_name}-%{version}.tar.bz2
-Patch:		%{real_name}-0.14-no_strict_warnings.patch
-URL:		http://search.cpan.org/dist/%{real_name}/
-BuildRequires:	perl-devel zlib-devel
-BuildRoot:	%{_tmppath}/%{name}-buildroot
+Url:		http://search.cpan.org/dist/%{upstream_name}/
+Source0:	http://www.cpan.org/authors/id/N/NW/NWCLARK/%{upstream_name}-%{upstream_version}.tar.bz2
+Patch0:		%{upstream_name}-0.14-no_strict_warnings.patch
+
+BuildRequires:	perl-devel
+BuildRequires:  zlib-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 PerlIO::gzip provides a PerlIO layer that manipulates files in the format used
@@ -22,8 +23,8 @@ together. If you attempt to open a file for reading and writing the open will
 fail.
 
 %prep
-%setup -q -n %{real_name}-%{version}
-%patch -p1 -b .fpons
+%setup -q -n %{upstream_name}-%{upstream_version}
+%patch0 -p1 -b .fpons
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -45,6 +46,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/*/*
 %{perl_vendorarch}/PerlIO
 %{perl_vendorarch}/auto/PerlIO
-
-
-
