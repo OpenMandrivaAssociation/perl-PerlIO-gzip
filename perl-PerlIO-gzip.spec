@@ -11,6 +11,7 @@ Url:		http://search.cpan.org/dist/%{modname}/
 Source0:	http://www.cpan.org/authors/id/N/NW/NWCLARK/%{modname}-%{modver}.tar.bz2
 Patch0:		%{modname}-0.14-no_strict_warnings.patch
 Patch1:		PerlIO-gzip-0.18-RT92412.patch
+BuildRequires:	perl(Test::More)
 BuildRequires:	perl-devel
 BuildRequires:	pkgconfig(zlib)
 
